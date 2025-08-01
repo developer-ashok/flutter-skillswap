@@ -39,6 +39,12 @@ A minimal MVP Flutter app for skill exchange — users can offer a skill and req
 - Once matched, user can send a simulated first message
 - One-way confirmation only (no chat backend)
 
+### 📞 Floating Contact Button
+- Beautiful glassmorphism floating contact button on all screens
+- Always accessible contact information
+- Animated interactions with smooth scaling effects
+- Contact popup with developer information
+
 ---
 
 ## 🛠 Tech Stack
@@ -149,6 +155,7 @@ lib/
 - **Match indicators** with heart icons
 - **Smooth animations** and transitions
 - **Intuitive navigation** with bottom tabs
+- **Glassmorphism floating contact button** with beautiful animations
 
 ---
 
@@ -199,6 +206,16 @@ This project is open source and available under the [MIT License](LICENSE).
 - Flutter team for the amazing framework
 - Material Design team for the design system
 - The open-source community for various packages
+
+---
+
+## 📞 Contact Information
+
+**Developer:** Ashok Chandrapal  
+**Phone:** +91 9033359874  
+**Email:** developer7039@gmail.com  
+**GitHub:** [github.com/developer-ashok](https://github.com/developer-ashok)  
+**LinkedIn:** [linkedin.com/in/ashok-chandrapal](https://linkedin.com/in/ashok-chandrapal)
 
 ---
 

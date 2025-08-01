@@ -3,6 +3,7 @@ import 'browse_screen.dart';
 import 'profile_screen.dart';
 import 'matches_screen.dart';
 import 'add_post_screen.dart';
+import '../widgets/floating_contact_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
+      body: Stack(
+        children: [
+          _screens[_currentIndex],
+          const FloatingContactButton(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,

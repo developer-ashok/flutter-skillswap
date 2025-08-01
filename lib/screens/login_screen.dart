@@ -66,19 +66,34 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.blue, Colors.lightBlueAccent],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF667EEA),
+                  Color(0xFF764BA2),
+                ],
               ),
             ),
             child: SafeArea(
               child: Center(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(24.0),
-                  child: Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      color: Colors.white.withOpacity(0.95),
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.2),
+                        width: 1,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 20,
+                          spreadRadius: 0,
+                          offset: const Offset(0, 10),
+                        ),
+                      ],
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(32.0),
@@ -88,10 +103,32 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             // App Logo/Title
-                            const Icon(
-                              Icons.handshake,
-                              size: 80,
-                              color: Colors.blue,
+                            Container(
+                              padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xFF4299E1),
+                                    Color(0xFF667EEA),
+                                  ],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0xFF4299E1).withOpacity(0.3),
+                                    blurRadius: 20,
+                                    spreadRadius: 0,
+                                    offset: const Offset(0, 8),
+                                  ),
+                                ],
+                              ),
+                              child: const Icon(
+                                Icons.handshake,
+                                size: 60,
+                                color: Colors.white,
+                              ),
                             ),
                             const SizedBox(height: 16),
                             const Text(
@@ -99,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                 fontSize: 32,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.blue,
+                                color: Color(0xFF2D3748),
                               ),
                             ),
                             const SizedBox(height: 8),
@@ -172,11 +209,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
                             // Demo Credentials Info
                             Container(
-                              padding: const EdgeInsets.all(12),
+                              padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
-                                color: Colors.blue.shade50,
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.blue.shade200),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    const Color(0xFF4299E1).withOpacity(0.1),
+                                    const Color(0xFF667EEA).withOpacity(0.1),
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: const Color(0xFF4299E1).withOpacity(0.2),
+                                  width: 1,
+                                ),
                               ),
                               child: const Column(
                                 children: [
@@ -184,7 +231,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     'Demo Credentials',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.blue,
+                                      color: Color(0xFF4299E1),
                                     ),
                                   ),
                                   SizedBox(height: 4),

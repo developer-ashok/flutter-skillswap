@@ -78,50 +78,43 @@ class _FloatingContactButtonState extends State<FloatingContactButton>
           builder: (context, child) {
             return Transform.scale(
               scale: _scaleAnimation.value,
-              child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Colors.white.withOpacity(0.2),
-                      Colors.white.withOpacity(0.1),
-                    ],
-                  ),
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.3),
-                    width: 1.5,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10,
-                      spreadRadius: 0,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Container(
+                              child: Container(
+                  width: 60,
+                  height: 60,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Colors.white.withOpacity(0.1),
-                        Colors.white.withOpacity(0.05),
+                        Color(0xFF4299E1),
+                        Color(0xFF667EEA),
                       ],
                     ),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 1.5,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFF4299E1).withOpacity(0.3),
+                        blurRadius: 20,
+                        spreadRadius: 0,
+                        offset: const Offset(0, 8),
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 10,
+                        spreadRadius: 0,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
                   child: const Icon(
                     Icons.contact_support,
                     color: Colors.white,
                     size: 28,
                   ),
-                ),
               ),
             );
           },
@@ -144,23 +137,23 @@ class _ContactDialogState extends State<_ContactDialog> {
       child: Container(
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(24),
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.black.withOpacity(0.8),
-              Colors.black.withOpacity(0.6),
+              Colors.white.withOpacity(0.95),
+              Colors.white.withOpacity(0.9),
             ],
           ),
           border: Border.all(
-            color: Colors.white.withOpacity(0.2),
+            color: Colors.white.withOpacity(0.3),
             width: 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              blurRadius: 20,
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 30,
               spreadRadius: 0,
               offset: const Offset(0, 10),
             ),
@@ -173,28 +166,47 @@ class _ContactDialogState extends State<_ContactDialog> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(16),
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.white.withOpacity(0.1),
-                    Colors.white.withOpacity(0.05),
+                    const Color(0xFF4299E1).withOpacity(0.1),
+                    const Color(0xFF667EEA).withOpacity(0.1),
                   ],
                 ),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.1),
+                  color: const Color(0xFF4299E1).withOpacity(0.2),
                   width: 1,
                 ),
               ),
               child: Column(
                 children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.white.withOpacity(0.1),
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color(0xFF4299E1),
+                          Color(0xFF667EEA),
+                        ],
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF4299E1).withOpacity(0.3),
+                          blurRadius: 15,
+                          spreadRadius: 0,
+                          offset: const Offset(0, 5),
+                        ),
+                      ],
+                    ),
                     child: const Icon(
                       Icons.person,
-                      size: 35,
+                      size: 30,
                       color: Colors.white,
                     ),
                   ),
@@ -204,7 +216,7 @@ class _ContactDialogState extends State<_ContactDialog> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Color(0xFF2D3748),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -212,7 +224,7 @@ class _ContactDialogState extends State<_ContactDialog> {
                     'Flutter Developer',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white.withOpacity(0.8),
+                      color: Color(0xFF718096),
                     ),
                   ),
                 ],
@@ -256,16 +268,14 @@ class _ContactDialogState extends State<_ContactDialog> {
               child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white.withOpacity(0.1),
+                  backgroundColor: const Color(0xFF4299E1),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    side: BorderSide(
-                      color: Colors.white.withOpacity(0.2),
-                      width: 1,
-                    ),
+                    borderRadius: BorderRadius.circular(16),
                   ),
+                  elevation: 0,
+                  shadowColor: Colors.transparent,
                 ),
                 child: const Text(
                   'Close',
@@ -294,32 +304,39 @@ class _ContactDialogState extends State<_ContactDialog> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.white.withOpacity(0.1),
-              Colors.white.withOpacity(0.05),
+              const Color(0xFF4299E1).withOpacity(0.05),
+              const Color(0xFF667EEA).withOpacity(0.05),
             ],
           ),
           border: Border.all(
-            color: Colors.white.withOpacity(0.1),
+            color: const Color(0xFF4299E1).withOpacity(0.1),
             width: 1,
           ),
         ),
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.white.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(12),
+                gradient: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFF4299E1),
+                    Color(0xFF667EEA),
+                  ],
+                ),
               ),
               child: Icon(
                 icon,
                 color: Colors.white,
-                size: 20,
+                size: 18,
               ),
             ),
             const SizedBox(width: 12),
@@ -331,7 +348,7 @@ class _ContactDialogState extends State<_ContactDialog> {
                     title,
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.white.withOpacity(0.7),
+                      color: Color(0xFF718096),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -340,7 +357,7 @@ class _ContactDialogState extends State<_ContactDialog> {
                     value,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: Colors.white,
+                      color: Color(0xFF2D3748),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -349,7 +366,7 @@ class _ContactDialogState extends State<_ContactDialog> {
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: Colors.white.withOpacity(0.5),
+              color: Color(0xFF718096),
               size: 16,
             ),
           ],

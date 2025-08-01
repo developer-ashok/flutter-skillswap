@@ -15,13 +15,22 @@ class SkillPostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: isMatched ? 4 : 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: isMatched 
-            ? BorderSide(color: Colors.green.withOpacity(0.3), width: 2)
-            : BorderSide.none,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+        border: isMatched 
+            ? Border.all(color: const Color(0xFF48BB78), width: 2)
+            : Border.all(color: Colors.grey.shade100, width: 1),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 20,
+            spreadRadius: 0,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: InkWell(
         onTap: onTap,
@@ -34,14 +43,28 @@ class SkillPostCard extends StatelessWidget {
               // Header with user info and match badge
               Row(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    radius: 20,
-                    child: Text(
-                      post.userName[0].toUpperCase(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color(0xFF4299E1),
+                          Color(0xFF667EEA),
+                        ],
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        post.userName[0].toUpperCase(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   ),
@@ -67,33 +90,48 @@ class SkillPostCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (isMatched)
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.favorite,
-                            size: 14,
-                            color: Colors.green,
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            'Matched',
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.green.shade700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                                   if (isMatched)
+                   Container(
+                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                     decoration: BoxDecoration(
+                       gradient: const LinearGradient(
+                         begin: Alignment.topLeft,
+                         end: Alignment.bottomRight,
+                         colors: [
+                           Color(0xFF48BB78),
+                           Color(0xFF38A169),
+                         ],
+                       ),
+                       borderRadius: BorderRadius.circular(20),
+                       boxShadow: [
+                         BoxShadow(
+                           color: const Color(0xFF48BB78).withOpacity(0.3),
+                           blurRadius: 8,
+                           spreadRadius: 0,
+                           offset: const Offset(0, 2),
+                         ),
+                       ],
+                     ),
+                     child: Row(
+                       mainAxisSize: MainAxisSize.min,
+                       children: [
+                         const Icon(
+                           Icons.favorite,
+                           size: 14,
+                           color: Colors.white,
+                         ),
+                         const SizedBox(width: 4),
+                         const Text(
+                           'Matched',
+                           style: TextStyle(
+                             fontSize: 10,
+                             fontWeight: FontWeight.w600,
+                             color: Colors.white,
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
                 ],
               ),
               const SizedBox(height: 16),
@@ -105,29 +143,39 @@ class SkillPostCard extends StatelessWidget {
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.green.withOpacity(0.3)),
-                      ),
+                                             decoration: BoxDecoration(
+                         gradient: LinearGradient(
+                           begin: Alignment.topLeft,
+                           end: Alignment.bottomRight,
+                           colors: [
+                             const Color(0xFF48BB78).withOpacity(0.1),
+                             const Color(0xFF38A169).withOpacity(0.1),
+                           ],
+                         ),
+                         borderRadius: BorderRadius.circular(12),
+                         border: Border.all(
+                           color: const Color(0xFF48BB78).withOpacity(0.2),
+                           width: 1,
+                         ),
+                       ),
                       child: Column(
                         children: [
                           Text(
                             'Offering',
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green.shade700,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            post.skillOffered,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.green.shade700,
-                            ),
+                                                       style: TextStyle(
+                             fontSize: 10,
+                             fontWeight: FontWeight.w500,
+                             color: Color(0xFF48BB78),
+                           ),
+                         ),
+                         const SizedBox(height: 4),
+                         Text(
+                           post.skillOffered,
+                           style: TextStyle(
+                             fontSize: 14,
+                             fontWeight: FontWeight.w600,
+                             color: Color(0xFF48BB78),
+                           ),
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -149,29 +197,39 @@ class SkillPostCard extends StatelessWidget {
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.orange.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.orange.withOpacity(0.3)),
-                      ),
+                                             decoration: BoxDecoration(
+                         gradient: LinearGradient(
+                           begin: Alignment.topLeft,
+                           end: Alignment.bottomRight,
+                           colors: [
+                             const Color(0xFFED8936).withOpacity(0.1),
+                             const Color(0xFFDD6B20).withOpacity(0.1),
+                           ],
+                         ),
+                         borderRadius: BorderRadius.circular(12),
+                         border: Border.all(
+                           color: const Color(0xFFED8936).withOpacity(0.2),
+                           width: 1,
+                         ),
+                       ),
                       child: Column(
                         children: [
                           Text(
                             'Wants',
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.orange.shade700,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            post.skillWanted,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.orange.shade700,
-                            ),
+                                                       style: TextStyle(
+                             fontSize: 10,
+                             fontWeight: FontWeight.w500,
+                             color: Color(0xFFED8936),
+                           ),
+                         ),
+                         const SizedBox(height: 4),
+                         Text(
+                           post.skillWanted,
+                           style: TextStyle(
+                             fontSize: 14,
+                             fontWeight: FontWeight.w600,
+                             color: Color(0xFFED8936),
+                           ),
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -187,26 +245,36 @@ class SkillPostCard extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.blue.withOpacity(0.3)),
-                  ),
+                                   decoration: BoxDecoration(
+                   gradient: LinearGradient(
+                     begin: Alignment.topLeft,
+                     end: Alignment.bottomRight,
+                     colors: [
+                       const Color(0xFF4299E1).withOpacity(0.1),
+                       const Color(0xFF667EEA).withOpacity(0.1),
+                     ],
+                   ),
+                   borderRadius: BorderRadius.circular(12),
+                   border: Border.all(
+                     color: const Color(0xFF4299E1).withOpacity(0.2),
+                     width: 1,
+                   ),
+                 ),
                   child: Row(
                     children: [
                       Icon(
                         Icons.schedule,
                         size: 16,
-                        color: Colors.blue.shade700,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Available: ${post.availability}',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.blue.shade700,
-                          fontWeight: FontWeight.w500,
-                        ),
+                                             color: Color(0xFF4299E1),
+                   ),
+                   const SizedBox(width: 8),
+                   Text(
+                     'Available: ${post.availability}',
+                     style: TextStyle(
+                       fontSize: 12,
+                       color: Color(0xFF4299E1),
+                       fontWeight: FontWeight.w500,
+                     ),
                       ),
                     ],
                   ),
@@ -221,11 +289,14 @@ class SkillPostCard extends StatelessWidget {
                   onPressed: onTap,
                   icon: const Icon(Icons.message, size: 16),
                   label: const Text('View Details'),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    side: const BorderSide(color: Colors.blue),
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                  ),
+                                   style: OutlinedButton.styleFrom(
+                   foregroundColor: const Color(0xFF4299E1),
+                   side: const BorderSide(color: Color(0xFF4299E1)),
+                   padding: const EdgeInsets.symmetric(vertical: 12),
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(12),
+                   ),
+                 ),
                 ),
               ),
             ],
